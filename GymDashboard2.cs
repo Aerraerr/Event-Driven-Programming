@@ -37,5 +37,21 @@ namespace EDP_GymwithGUI
             dashboard4.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+        }
+
+        private void GymDashboard2_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

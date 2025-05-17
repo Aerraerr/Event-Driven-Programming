@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button4 = new Button();
             dashboardbtn = new Button();
             button3 = new Button();
             button1 = new Button();
@@ -41,6 +42,7 @@
             // panel1
             // 
             panel1.BackColor = Color.DarkCyan;
+            panel1.Controls.Add(button4);
             panel1.Controls.Add(dashboardbtn);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button1);
@@ -52,6 +54,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(200, 753);
             panel1.TabIndex = 1;
+            // 
+            // button4
+            // 
+            button4.FlatAppearance.BorderSize = 0;
+            button4.FlatStyle = FlatStyle.Flat;
+            button4.Font = new Font("Impact", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.ForeColor = Color.MintCream;
+            button4.Location = new Point(0, 464);
+            button4.Name = "button4";
+            button4.Size = new Size(200, 56);
+            button4.TabIndex = 9;
+            button4.Text = "REGISTER MEMBER";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // dashboardbtn
             // 
@@ -111,6 +127,7 @@
             button2.TabIndex = 1;
             button2.Text = "P A N E L  2";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // pictureBox1
             // 
@@ -127,13 +144,14 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1182, 753);
+            ClientSize = new Size(1382, 753);
             Controls.Add(panel1);
             Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             Name = "GymDashboard2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GymDashboard2";
+            Load += GymDashboard2_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -147,5 +165,6 @@
         private Button button2;
         private Button dashboardbtn;
         private PictureBox pictureBox1;
+        private Button button4;
     }
 }

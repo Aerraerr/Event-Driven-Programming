@@ -30,7 +30,6 @@
         {
             pictureBox1 = new PictureBox();
             LoginBtn = new Button();
-            RegisterBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -54,27 +53,13 @@
             LoginBtn.FlatStyle = FlatStyle.Flat;
             LoginBtn.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LoginBtn.ForeColor = SystemColors.ButtonHighlight;
-            LoginBtn.Location = new Point(296, 568);
+            LoginBtn.Location = new Point(56, 568);
             LoginBtn.Name = "LoginBtn";
-            LoginBtn.Size = new Size(239, 40);
+            LoginBtn.Size = new Size(479, 40);
             LoginBtn.TabIndex = 1;
             LoginBtn.Text = "Login";
             LoginBtn.UseVisualStyleBackColor = false;
             LoginBtn.Click += LoginBtn_Click;
-            // 
-            // RegisterBtn
-            // 
-            RegisterBtn.BackColor = Color.White;
-            RegisterBtn.FlatAppearance.BorderSize = 0;
-            RegisterBtn.FlatStyle = FlatStyle.Flat;
-            RegisterBtn.Font = new Font("Impact", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            RegisterBtn.Location = new Point(48, 568);
-            RegisterBtn.Name = "RegisterBtn";
-            RegisterBtn.Size = new Size(239, 40);
-            RegisterBtn.TabIndex = 2;
-            RegisterBtn.Text = "Create Account";
-            RegisterBtn.UseVisualStyleBackColor = false;
-            RegisterBtn.Click += RegisterBtn_Click;
             // 
             // Form1
             // 
@@ -84,7 +69,6 @@
             BackgroundImage = Properties.Resources.gymrat_removebg_preview;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(582, 653);
-            Controls.Add(RegisterBtn);
             Controls.Add(LoginBtn);
             Controls.Add(pictureBox1);
             DoubleBuffered = true;
@@ -101,6 +85,5 @@
 
         private PictureBox pictureBox1;
         private Button LoginBtn;
-        private Button RegisterBtn;
     }
 }

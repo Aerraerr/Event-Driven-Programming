@@ -1,4 +1,6 @@
 ﻿using System;
+using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +18,19 @@ namespace EDP_GymwithGUI
         public Login()
         {
             InitializeComponent();
+        }
+        private string ComputeSha256Hash(string rawData)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -56,16 +71,84 @@ namespace EDP_GymwithGUI
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Register register = new Register();
-            register.Show();
-            this.Hide();
+            MessageBox.Show("Please register or consult the gym owner or admin", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //Register register = new Register();
+            //register.Show();
+            //this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GymDashboard dashboard = new GymDashboard();
-            dashboard.Show();
-            this.Hide();
+            string email = forEmail.Text.Trim();
+            string password = ComputeSha256Hash(forPassword.Text.Trim()); // Make sure this hashes correctly
+
+            string connectionString = "server=localhost;port=3306;database=gym;uid=root;pwd=root;";
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    bool isLoggedIn = false;
+
+                    // Check in gym_owners
+                    string queryOwner = "SELECT COUNT(*) FROM gym_owners WHERE email = @Email AND password = @Password";
+                    using (MySqlCommand cmdOwner = new MySqlCommand(queryOwner, conn))
+                    {
+                        cmdOwner.Parameters.AddWithValue("@Email", email);
+                        cmdOwner.Parameters.AddWithValue("@Password", password);
+
+                        int countOwner = Convert.ToInt32(cmdOwner.ExecuteScalar());
+
+                        if (countOwner > 0)
+                        {
+                            MessageBox.Show("Login successful! Welcome, Owner.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            GymDashboard dashboard = new GymDashboard();
+                            dashboard.Show();
+                            this.Hide();
+                            isLoggedIn = true;
+                        }
+                    }
+
+                    if (!isLoggedIn)
+                    {
+                        // Check in members
+                        string queryMember = "SELECT COUNT(*) FROM members WHERE email = @Email AND password = @Password";
+                        using (MySqlCommand cmdMember = new MySqlCommand(queryMember, conn))
+                        {
+                            cmdMember.Parameters.AddWithValue("@Email", email);
+                            cmdMember.Parameters.AddWithValue("@Password", password);
+
+                            int countMember = Convert.ToInt32(cmdMember.ExecuteScalar());
+
+                            if (countMember > 0)
+                            {
+                                MessageBox.Show("Login successful! Welcome, Member.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                AfterLogin memberDashboard = new AfterLogin();
+                                memberDashboard.Show();
+                                this.Hide();
+                                isLoggedIn = true;
+                            }
+                        }
+                    }
+
+                    if (!isLoggedIn)
+                    {
+                        MessageBox.Show("Invalid email or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error connecting to database: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+
+        private void forEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

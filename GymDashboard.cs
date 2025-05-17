@@ -7,15 +7,96 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
+using Mysqlx.Crud;
+
 
 namespace EDP_GymwithGUI
 {
     public partial class GymDashboard : Form
     {
+        private string connectionString = "server=localhost;port=3306;database=gym;uid=root;pwd=root;";
         public GymDashboard()
         {
             InitializeComponent();
+            LoadMembers();
+            CountTotalMembers();
+            CountVIPMembers();
+            CountPremiumMembers();
+            CountBasicMembers();
+            timer1.Start();
+            timer2.Start();
         }
+        private void LoadMembers()
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                string query = @"
+            SELECT 
+                id AS ID,
+                CONCAT(first_name, ' ', last_name) AS fullname,
+                gender AS Gender,
+                birth_date AS Birthday,
+                weight_kg AS weight_kg,
+                height_cm AS height_cm,
+                membership_type AS Membership,
+                membership_start AS Start
+            FROM members
+            WHERE gym_id = 1
+            LIMIT 10";
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, con);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+        }
+        private void CountTotalMembers()
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM members WHERE gym_id = 1";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                con.Open();
+                object result = cmd.ExecuteScalar();
+                textBox1.Text = result.ToString(); // Display count in textBox1
+            }
+        }
+        private void CountVIPMembers()
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM members WHERE gym_id = 1 AND membership_type = 'VIP'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                con.Open();
+                object result = cmd.ExecuteScalar();
+                textBox2.Text = result.ToString(); // Show VIP count in textBox2
+            }
+        }
+        private void CountPremiumMembers()
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM members WHERE gym_id = 1 AND membership_type = 'Premium'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                con.Open();
+                object result = cmd.ExecuteScalar();
+                textBox3.Text = result.ToString(); // Show VIP count in textBox2
+            }
+        }
+        private void CountBasicMembers()
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM members WHERE gym_id = 1 AND membership_type = 'Basic'";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                con.Open();
+                object result = cmd.ExecuteScalar();
+                textBox4.Text = result.ToString(); // Show VIP count in textBox2
+            }
+        }
+
 
         private void toolStripComboBox1_Click(object sender, EventArgs e)
         {
@@ -64,6 +145,62 @@ namespace EDP_GymwithGUI
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            textBox5.Text = DateTime.Now.ToString("dddd, MMMM dd yyyy ");
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            textBox6.Text = DateTime.Now.ToString("hh:mm:ss tt");
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
         {
 
         }

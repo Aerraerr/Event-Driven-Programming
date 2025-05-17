@@ -81,6 +81,7 @@
             forEmail.PlaceholderText = " Enter your email";
             forEmail.Size = new Size(386, 30);
             forEmail.TabIndex = 3;
+            forEmail.TextChanged += forEmail_TextChanged;
             // 
             // label2
             // 
@@ -172,7 +173,7 @@
             label6.BackColor = Color.Gainsboro;
             label6.Font = new Font("Segoe UI", 1.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.LightGray;
-            label6.Location = new Point(152, 584);
+            label6.Location = new Point(152, 560);
             label6.Name = "label6";
             label6.Size = new Size(378, 3);
             label6.TabIndex = 12;
@@ -184,7 +185,7 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(200, 600);
+            label7.Location = new Point(200, 576);
             label7.Name = "label7";
             label7.Size = new Size(163, 20);
             label7.TabIndex = 13;
@@ -195,7 +196,7 @@
             // 
             linkLabel1.AutoSize = true;
             linkLabel1.LinkColor = Color.DarkCyan;
-            linkLabel1.Location = new Point(368, 600);
+            linkLabel1.Location = new Point(368, 576);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(108, 20);
             linkLabel1.TabIndex = 14;
@@ -232,7 +233,7 @@
             // 
             loginbtn.BackColor = Color.DarkCyan;
             loginbtn.ForeColor = Color.Transparent;
-            loginbtn.Location = new Point(144, 520);
+            loginbtn.Location = new Point(144, 504);
             loginbtn.Name = "loginbtn";
             loginbtn.Size = new Size(387, 40);
             loginbtn.TabIndex = 17;

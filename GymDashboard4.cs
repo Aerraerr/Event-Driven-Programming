@@ -42,5 +42,11 @@ namespace EDP_GymwithGUI
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+        }
     }
 }

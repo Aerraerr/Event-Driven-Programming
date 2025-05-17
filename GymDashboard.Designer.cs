@@ -28,22 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panel1 = new Panel();
             button3 = new Button();
             button1 = new Button();
             button2 = new Button();
             dashboardbtn = new Button();
             pictureBox1 = new PictureBox();
+            button4 = new Button();
             dataGridView1 = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            fullname = new DataGridViewTextBoxColumn();
-            Gender = new DataGridViewTextBoxColumn();
-            Birthday = new DataGridViewTextBoxColumn();
-            weight_kg = new DataGridViewTextBoxColumn();
-            height_cm = new DataGridViewTextBoxColumn();
-            Membership = new DataGridViewTextBoxColumn();
             label1 = new Label();
             linkLabel1 = new LinkLabel();
+            textBox1 = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            textBox2 = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            textBox3 = new TextBox();
+            textBox4 = new TextBox();
+            textBox5 = new TextBox();
+            label7 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
+            label8 = new Label();
+            textBox6 = new TextBox();
+            timer2 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -125,64 +135,32 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
+            // button4
+            // 
+            button4.BackColor = Color.DarkCyan;
+            button4.FlatAppearance.BorderSize = 0;
+            button4.Font = new Font("Impact", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.ForeColor = SystemColors.Control;
+            button4.Location = new Point(1152, 288);
+            button4.Name = "button4";
+            button4.Size = new Size(200, 56);
+            button4.TabIndex = 10;
+            button4.Text = "REGISTER MEMBER";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.ControlLight;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, fullname, Gender, Birthday, weight_kg, height_cm, Membership });
+            dataGridView1.GridColor = SystemColors.ScrollBar;
             dataGridView1.Location = new Point(216, 408);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(952, 336);
+            dataGridView1.Size = new Size(1136, 336);
             dataGridView1.TabIndex = 1;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.Width = 125;
-            // 
-            // fullname
-            // 
-            fullname.HeaderText = "FullName";
-            fullname.MinimumWidth = 6;
-            fullname.Name = "fullname";
-            fullname.Width = 125;
-            // 
-            // Gender
-            // 
-            Gender.HeaderText = "Gender";
-            Gender.MinimumWidth = 6;
-            Gender.Name = "Gender";
-            Gender.Width = 125;
-            // 
-            // Birthday
-            // 
-            Birthday.HeaderText = "Birthday";
-            Birthday.MinimumWidth = 6;
-            Birthday.Name = "Birthday";
-            Birthday.Width = 125;
-            // 
-            // weight_kg
-            // 
-            weight_kg.HeaderText = "W-kg";
-            weight_kg.MinimumWidth = 6;
-            weight_kg.Name = "weight_kg";
-            weight_kg.Width = 125;
-            // 
-            // height_cm
-            // 
-            height_cm.HeaderText = "H-cm";
-            height_cm.MinimumWidth = 6;
-            height_cm.Name = "height_cm";
-            height_cm.Width = 125;
-            // 
-            // Membership
-            // 
-            Membership.HeaderText = "Membership";
-            Membership.MinimumWidth = 6;
-            Membership.Name = "Membership";
-            Membership.Width = 125;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // label1
             // 
@@ -199,22 +177,194 @@
             linkLabel1.AutoSize = true;
             linkLabel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             linkLabel1.LinkColor = Color.DarkCyan;
-            linkLabel1.Location = new Point(1056, 368);
+            linkLabel1.Location = new Point(1248, 368);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(104, 28);
             linkLabel1.TabIndex = 3;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Show all >";
             // 
+            // textBox1
+            // 
+            textBox1.BackColor = SystemColors.Control;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI", 100.200005F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = Color.DarkCyan;
+            textBox1.Location = new Point(232, 80);
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(208, 223);
+            textBox1.TabIndex = 4;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(216, 16);
+            label2.Name = "label2";
+            label2.Size = new Size(272, 54);
+            label2.TabIndex = 5;
+            label2.Text = "DASHBOARD";
+            label2.Click += label2_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(224, 80);
+            label3.Name = "label3";
+            label3.Size = new Size(145, 28);
+            label3.TabIndex = 6;
+            label3.Text = "Total Members:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(488, 80);
+            label4.Name = "label4";
+            label4.Size = new Size(40, 28);
+            label4.TabIndex = 7;
+            label4.Text = "VIP";
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = SystemColors.Control;
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox2.ForeColor = Color.DarkCyan;
+            textBox2.Location = new Point(488, 104);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(112, 67);
+            textBox2.TabIndex = 8;
+            textBox2.TextAlign = HorizontalAlignment.Center;
+            textBox2.TextChanged += textBox2_TextChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(624, 80);
+            label5.Name = "label5";
+            label5.Size = new Size(90, 28);
+            label5.TabIndex = 9;
+            label5.Text = "Premium";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.Location = new Point(752, 80);
+            label6.Name = "label6";
+            label6.Size = new Size(55, 28);
+            label6.TabIndex = 10;
+            label6.Text = "Basic";
+            // 
+            // textBox3
+            // 
+            textBox3.BackColor = SystemColors.Control;
+            textBox3.BorderStyle = BorderStyle.None;
+            textBox3.Font = new Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox3.ForeColor = Color.DarkCyan;
+            textBox3.Location = new Point(624, 104);
+            textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
+            textBox3.Size = new Size(104, 67);
+            textBox3.TabIndex = 11;
+            textBox3.TextAlign = HorizontalAlignment.Center;
+            textBox3.TextChanged += textBox3_TextChanged;
+            // 
+            // textBox4
+            // 
+            textBox4.BackColor = SystemColors.Control;
+            textBox4.BorderStyle = BorderStyle.None;
+            textBox4.Font = new Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox4.ForeColor = Color.DarkCyan;
+            textBox4.Location = new Point(752, 104);
+            textBox4.Name = "textBox4";
+            textBox4.ReadOnly = true;
+            textBox4.Size = new Size(104, 67);
+            textBox4.TabIndex = 12;
+            textBox4.TextAlign = HorizontalAlignment.Center;
+            // 
+            // textBox5
+            // 
+            textBox5.BackColor = SystemColors.Control;
+            textBox5.Font = new Font("Segoe UI Semibold", 25.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox5.ForeColor = Color.DarkCyan;
+            textBox5.Location = new Point(880, 96);
+            textBox5.Name = "textBox5";
+            textBox5.ReadOnly = true;
+            textBox5.Size = new Size(464, 63);
+            textBox5.TabIndex = 13;
+            textBox5.TextChanged += textBox5_TextChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(880, 80);
+            label7.Name = "label7";
+            label7.Size = new Size(53, 28);
+            label7.TabIndex = 14;
+            label7.Text = "Date";
+            label7.Click += label7_Click;
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(880, 184);
+            label8.Name = "label8";
+            label8.Size = new Size(54, 28);
+            label8.TabIndex = 15;
+            label8.Text = "Time";
+            // 
+            // textBox6
+            // 
+            textBox6.BackColor = SystemColors.Control;
+            textBox6.Font = new Font("Segoe UI Semibold", 25.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox6.ForeColor = Color.DarkCyan;
+            textBox6.Location = new Point(880, 208);
+            textBox6.Name = "textBox6";
+            textBox6.ReadOnly = true;
+            textBox6.Size = new Size(464, 63);
+            textBox6.TabIndex = 16;
+            textBox6.TextChanged += textBox6_TextChanged;
+            // 
+            // timer2
+            // 
+            timer2.Tick += timer2_Tick;
+            // 
             // GymDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1182, 753);
+            ClientSize = new Size(1382, 753);
+            Controls.Add(textBox6);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(textBox5);
+            Controls.Add(button4);
+            Controls.Add(textBox4);
+            Controls.Add(textBox3);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(linkLabel1);
             Controls.Add(label1);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
+            Controls.Add(textBox1);
+            Controls.Add(textBox2);
             ForeColor = Color.DarkCyan;
             Name = "GymDashboard";
             StartPosition = FormStartPosition.CenterScreen;
@@ -236,14 +386,23 @@
         private Button dashboardbtn;
         private PictureBox pictureBox1;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn fullname;
-        private DataGridViewTextBoxColumn Gender;
-        private DataGridViewTextBoxColumn Birthday;
-        private DataGridViewTextBoxColumn weight_kg;
-        private DataGridViewTextBoxColumn height_cm;
-        private DataGridViewTextBoxColumn Membership;
         private Label label1;
         private LinkLabel linkLabel1;
+        private Button button4;
+        private TextBox textBox1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private TextBox textBox2;
+        private Label label5;
+        private Label label6;
+        private TextBox textBox3;
+        private TextBox textBox4;
+        private TextBox textBox5;
+        private Label label7;
+        private System.Windows.Forms.Timer timer1;
+        private Label label8;
+        private TextBox textBox6;
+        private System.Windows.Forms.Timer timer2;
     }
 }

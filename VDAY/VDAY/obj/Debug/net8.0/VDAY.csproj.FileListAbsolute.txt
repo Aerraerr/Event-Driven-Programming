@@ -1,4 +1,0 @@
-C:\Users\User\source\repos\VDAY\VDAY\obj\Debug\net8.0\VDAY.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User\source\repos\VDAY\VDAY\obj\Debug\net8.0\VDAY.AssemblyInfoInputs.cache
-C:\Users\User\source\repos\VDAY\VDAY\obj\Debug\net8.0\VDAY.AssemblyInfo.cs
-C:\Users\User\source\repos\VDAY\VDAY\obj\Debug\net8.0\VDAY.csproj.CoreCompileInputs.cache

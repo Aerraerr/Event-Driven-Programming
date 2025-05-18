@@ -27,6 +27,7 @@ namespace EDP_GymwithGUI
             CountBasicMembers();
             timer1.Start();
             timer2.Start();
+            showBranch();
         }
         private void LoadMembers()
         {
@@ -94,6 +95,25 @@ namespace EDP_GymwithGUI
                 con.Open();
                 object result = cmd.ExecuteScalar();
                 textBox4.Text = result.ToString(); // Show VIP count in textBox2
+            }
+        }
+        private void showBranch()
+        {
+            using (MySqlConnection con = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT location FROM gymbranch WHERE id = 1";
+                MySqlCommand cmd = new MySqlCommand(query, con);
+                con.Open();
+                object result = cmd.ExecuteScalar();
+
+                if (result != null)
+                {
+                    textBox7.Text = result.ToString() + " Branch";
+                }
+                else
+                {
+                    textBox7.Text = "Unknown branch";
+                }
             }
         }
 
@@ -203,6 +223,18 @@ namespace EDP_GymwithGUI
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GymDashboard2 dashboard2 = new GymDashboard2();
+            dashboard2.Show();
+            this.Hide();
         }
     }
 }

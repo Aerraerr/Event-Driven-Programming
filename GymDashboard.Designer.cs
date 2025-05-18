@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
             button3 = new Button();
             button1 = new Button();
@@ -54,6 +55,7 @@
             label8 = new Label();
             textBox6 = new TextBox();
             timer2 = new System.Windows.Forms.Timer(components);
+            textBox7 = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -82,7 +84,7 @@
             button3.Name = "button3";
             button3.Size = new Size(200, 56);
             button3.TabIndex = 3;
-            button3.Text = "P A N E L  4";
+            button3.Text = "V I E W   M E M B E R";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -95,7 +97,7 @@
             button1.Name = "button1";
             button1.Size = new Size(200, 56);
             button1.TabIndex = 2;
-            button1.Text = "P A N E L  3";
+            button1.Text = "T R A N S A C T I O N S ";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -108,7 +110,7 @@
             button2.Name = "button2";
             button2.Size = new Size(200, 56);
             button2.TabIndex = 1;
-            button2.Text = "P A N E L  2";
+            button2.Text = "M E M B E R S";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
@@ -153,6 +155,14 @@
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ControlLight;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.DarkCyan;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.GridColor = SystemColors.ScrollBar;
             dataGridView1.Location = new Point(216, 408);
@@ -183,6 +193,7 @@
             linkLabel1.TabIndex = 3;
             linkLabel1.TabStop = true;
             linkLabel1.Text = "Show all >";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // textBox1
             // 
@@ -292,12 +303,13 @@
             // textBox5
             // 
             textBox5.BackColor = SystemColors.Control;
+            textBox5.BorderStyle = BorderStyle.None;
             textBox5.Font = new Font("Segoe UI Semibold", 25.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox5.ForeColor = Color.DarkCyan;
-            textBox5.Location = new Point(880, 96);
+            textBox5.Location = new Point(880, 104);
             textBox5.Name = "textBox5";
             textBox5.ReadOnly = true;
-            textBox5.Size = new Size(464, 63);
+            textBox5.Size = new Size(464, 56);
             textBox5.TabIndex = 13;
             textBox5.TextChanged += textBox5_TextChanged;
             // 
@@ -329,12 +341,13 @@
             // textBox6
             // 
             textBox6.BackColor = SystemColors.Control;
+            textBox6.BorderStyle = BorderStyle.None;
             textBox6.Font = new Font("Segoe UI Semibold", 25.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             textBox6.ForeColor = Color.DarkCyan;
             textBox6.Location = new Point(880, 208);
             textBox6.Name = "textBox6";
             textBox6.ReadOnly = true;
-            textBox6.Size = new Size(464, 63);
+            textBox6.Size = new Size(464, 56);
             textBox6.TabIndex = 16;
             textBox6.TextChanged += textBox6_TextChanged;
             // 
@@ -342,11 +355,25 @@
             // 
             timer2.Tick += timer2_Tick;
             // 
+            // textBox7
+            // 
+            textBox7.BackColor = SystemColors.Control;
+            textBox7.BorderStyle = BorderStyle.None;
+            textBox7.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox7.ForeColor = Color.DarkCyan;
+            textBox7.Location = new Point(1032, 24);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(312, 23);
+            textBox7.TabIndex = 17;
+            textBox7.TextAlign = HorizontalAlignment.Right;
+            textBox7.TextChanged += textBox7_TextChanged;
+            // 
             // GymDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1382, 753);
+            Controls.Add(textBox7);
             Controls.Add(textBox6);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -404,5 +431,6 @@
         private Label label8;
         private TextBox textBox6;
         private System.Windows.Forms.Timer timer2;
+        private TextBox textBox7;
     }
 }

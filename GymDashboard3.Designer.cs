@@ -77,7 +77,7 @@
             button3.Name = "button3";
             button3.Size = new Size(200, 56);
             button3.TabIndex = 3;
-            button3.Text = "P A N E L  4";
+            button3.Text = "V I E W   M E M B E R S";
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
@@ -90,7 +90,7 @@
             button1.Name = "button1";
             button1.Size = new Size(200, 56);
             button1.TabIndex = 2;
-            button1.Text = "P A N E L  3";
+            button1.Text = "T R A N S A C T I O N S";
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -102,7 +102,7 @@
             button2.Name = "button2";
             button2.Size = new Size(200, 56);
             button2.TabIndex = 1;
-            button2.Text = "P A N E L  2";
+            button2.Text = "M E M B E R S";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 

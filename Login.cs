@@ -103,7 +103,7 @@ namespace EDP_GymwithGUI
 
                         if (countOwner > 0)
                         {
-                            MessageBox.Show("Login successful! Welcome, Owner.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Login successful! Welcome, Administrator.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             GymDashboard dashboard = new GymDashboard();
                             dashboard.Show();
                             this.Hide();
@@ -148,6 +148,13 @@ namespace EDP_GymwithGUI
 
         private void forEmail_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            forgotPassword newPass = new forgotPassword();
+            newPass.Show();
 
         }
     }

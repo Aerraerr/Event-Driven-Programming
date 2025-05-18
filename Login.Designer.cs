@@ -216,6 +216,7 @@
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Forgot password?";
             linkLabel2.TextAlign = ContentAlignment.TopCenter;
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // linkLabel3
             // 

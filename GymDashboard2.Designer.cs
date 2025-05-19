@@ -41,6 +41,8 @@
             label2 = new Label();
             textBox1 = new TextBox();
             label1 = new Label();
+            comboBox1 = new ComboBox();
+            label3 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -117,7 +119,7 @@
             button1.Name = "button1";
             button1.Size = new Size(200, 56);
             button1.TabIndex = 2;
-            button1.Text = "T R A N S A C T I O N S";
+            button1.Text = "T R A I N E R S";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -208,11 +210,35 @@
             label1.TabIndex = 8;
             label1.Text = "Search";
             // 
+            // comboBox1
+            // 
+            comboBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboBox1.ForeColor = Color.DarkCyan;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(720, 88);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 36);
+            comboBox1.TabIndex = 9;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.DarkCyan;
+            label3.Location = new Point(640, 88);
+            label3.Name = "label3";
+            label3.Size = new Size(70, 31);
+            label3.TabIndex = 10;
+            label3.Text = "Filter";
+            // 
             // GymDashboard2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1382, 753);
+            Controls.Add(label3);
+            Controls.Add(comboBox1);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(label2);
@@ -244,5 +270,7 @@
         private Label label2;
         private TextBox textBox1;
         private Label label1;
+        private ComboBox comboBox1;
+        private Label label3;
     }
 }

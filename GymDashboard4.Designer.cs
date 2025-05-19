@@ -90,7 +90,7 @@
             button1.Name = "button1";
             button1.Size = new Size(200, 56);
             button1.TabIndex = 2;
-            button1.Text = "T R A N S A C T I O N S";
+            button1.Text = "T R A I N E R S";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 

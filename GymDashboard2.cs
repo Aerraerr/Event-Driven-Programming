@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -13,7 +14,11 @@ namespace EDP_GymwithGUI
 
         public GymDashboard2()
         {
+
             InitializeComponent();
+            // Populate membership filter comboBox
+            comboBox1.Items.AddRange(new string[] { "All", "VIP", "Premium", "Basic" });
+            comboBox1.SelectedIndex = 0; // default "All"
             LoadMembers();
         }
 
@@ -105,6 +110,33 @@ WHERE gym_id = 1";
                 }
             }
         }
+        private void ApplyFilters()
+        {
+            if (membersTable == null) return;
+
+            string nameFilter = textBox1.Text.Trim().Replace("'", "''");
+            string membershipFilter = comboBox1.SelectedItem?.ToString() ?? "All";
+
+            StringBuilder filterBuilder = new StringBuilder();
+
+            if (!string.IsNullOrEmpty(nameFilter))
+            {
+                filterBuilder.AppendFormat("fullname LIKE '%{0}%'", nameFilter);
+            }
+
+            if (membershipFilter != "All")
+            {
+                if (filterBuilder.Length > 0)
+                    filterBuilder.Append(" AND ");
+
+                filterBuilder.AppendFormat("Membership = '{0}'", membershipFilter);
+            }
+
+            DataView dv = new DataView(membersTable);
+            dv.RowFilter = filterBuilder.ToString();
+
+            dataGridView1.DataSource = dv;
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -173,5 +205,11 @@ WHERE gym_id = 1";
         private void GymDashboard2_Load(object sender, EventArgs e) { }
 
         private void label2_Click(object sender, EventArgs e) { }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //for filtwer of VIP, premium and Basic
+            ApplyFilters();
+        }
     }
 }

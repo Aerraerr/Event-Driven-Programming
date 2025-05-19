@@ -122,11 +122,32 @@ namespace EDP_GymwithGUI
 
                             int countMember = Convert.ToInt32(cmdMember.ExecuteScalar());
 
-                            if (countMember > 0)
+if (countMember > 0)
+{
+    MessageBox.Show("Login successful! Welcome, Member.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    AfterLogin memberDashboard = new AfterLogin(email); // Pass the email
+    memberDashboard.Show();
+    this.Hide();
+    isLoggedIn = true;
+}
+
+                        }
+                    }
+                    if (!isLoggedIn)
+                    {
+                        string queryTrainer = "SELECT COUNT(*) FROM trainers WHERE email = @Email AND password = @Password";
+                        using (MySqlCommand cmdTrainer = new MySqlCommand(queryTrainer, conn))
+                        {
+                            cmdTrainer.Parameters.AddWithValue("@Email", email);
+                            cmdTrainer.Parameters.AddWithValue("@Password", password);
+
+                            int countTrainer = Convert.ToInt32(cmdTrainer.ExecuteScalar());
+
+                            if (countTrainer > 0)
                             {
-                                MessageBox.Show("Login successful! Welcome, Member.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                AfterLogin memberDashboard = new AfterLogin();
-                                memberDashboard.Show();
+                                MessageBox.Show("Login successful! Welcome, Trainer.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                AfterLoginTrainer trainerDashboard = new AfterLoginTrainer(); // Replace with your actual form
+                                trainerDashboard.Show();
                                 this.Hide();
                                 isLoggedIn = true;
                             }
